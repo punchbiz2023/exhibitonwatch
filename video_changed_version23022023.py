@@ -117,6 +117,15 @@ def load_video():
     
     return file_path
 
+
+def test1():
+    global final_date
+    global final_hms
+    final_date = "02-01-2023"
+    final_time = "08:52:42"
+    time_enter()
+    return final_date, final_hms
+    
 def ocr():
     global final_date
     global final_hms
@@ -581,6 +590,7 @@ def exit1():
     person_data_list = []
     option_list=[]
     input_name.set("")
+    root.destroy()
 #=============================================================================
     
 def optionmenu_callback(choice):
@@ -766,9 +776,10 @@ def table_view():
         button = tk.Button(tabel, image=thumbnail_images[i], command=lambda i=i: skip(time_to_sec[i]))
         button.image = thumbnail_images[i]
         button.place(x=450, y=40+i*30)
-
     
-    
+    search_namee.configure(state="disabled")
+    search_buttone.configure(state="disabled")
+    exit_buttone.configure(state='normal')
 def selectandplay():
     print("Select video and play")
 
@@ -812,6 +823,11 @@ search_buttone = ctk.CTkButton(master=side_frame, text = "Search", width=110,hei
 # file_btn.image = icon
 search_buttone.place(relx=0.2, rely=0.35)
 search_buttone.configure(state="disabled")
+
+exit_buttone = ctk.CTkButton(master=side_frame, text = "Exit", width=110,height=30,fg_color = 'red',command=exit1)
+# file_btn.image = icon
+exit_buttone.place(relx=0.2, rely=0.45)
+exit_buttone.configure(state="disabled")
 # =============================================================================
 # combobox = ctk.CTkOptionMenu(master=side_frame,
 #                                        values=["Search By Name", "Search By Company Name", "Search by In-Time"],
