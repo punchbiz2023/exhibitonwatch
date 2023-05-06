@@ -1,0 +1,9 @@
+path: "C:\Users\DELL\Downloads\data" # Path relative to the `train.py` script.
+train: ."C:\Users\DELL\Downloads\data\train" #apple and banana
+val: "C:\Users\DELL\Downloads\data\valid" #apple and banana
+
+# Classes
+nc: 17
+names:  [ 'dog', 'person', 'cat', 'tv', 'car', 'meatballs', 'marinara sauce', 'tomato soup', 
+'chicken noodle soup', 'french onion soup', 'chicken breast', 'ribs', 
+'pulled pork', 'hamburger', 'cavity', 'apple', 'banana'] #Class names
