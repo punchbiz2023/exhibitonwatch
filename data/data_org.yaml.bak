@@ -1,0 +1,7 @@
+path: "../data" # Path relative to the `train.py` script.
+train: images
+val: images
+
+# Classes
+nc: 15
+names: ["person"]
