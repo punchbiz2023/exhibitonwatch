@@ -1,0 +1,33 @@
+name: Sync to Punchbiz Repo
+
+on:
+  push:
+    branches:
+      - '*'  
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Sync to Punchbiz Repo
+        env:
+          PUNCHBIZ_TOKEN: ${{ secrets.PUNCHBIZ_TOKEN }}  
+        run: |
+          # Set up Git configuration
+          git config --global user.email "comesriram@gmail.com"
+          git config --global user.name "sriram"
+
+          # Add remote for Jerry's repository
+          git remote add punchbiz https://$PUNCHBIZ_TOKEN@github.com/comesri146/$(basename $GITHUB_REPOSITORY).git
+
+          # Fetch all branches from the origin
+          git fetch origin
+
+          # Push all branches and tags to the remote
+          git push --mirror punchbiz
